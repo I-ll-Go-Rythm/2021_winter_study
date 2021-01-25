@@ -2,41 +2,33 @@
 #include <math.h>
 #include <vector>
 using namespace std;
-
-void sc(vector<int> arr, int num, int jari) {
-    int a = num / pow(10, jari-1);
-    int val = (a-1) * pow(10, jari) + a;
-    for(int i = jari-1; i>0;i--) {
-        val += 9*pow(10,i) + 9;
-    }
-    if(val > num) {
-        arr.push_back(--a);
-        if(jari == 1) return;
-        num = num - a*pow(10,jari) - a;
-        sc(arr, num, --jari);
-    }
-    else{
-        arr.push_back(a);
-        if(jari == 1) return;
-        num = num - a*pow(10, jari) - a;
-        sc(arr, num, --jari);
-    }
-}
+int N;
 
 int main(void) {
-    vector<int> vec;
-    int no;
-    int p = 1;
-    int sum = 0;
-    scanf("%d", &no);
+    int jari = 0;
+    scanf("%d", &N);
+    int cp = N;
+    do {
+        jari ++;
+        cp = cp / 10;
+    }while (cp);
     
-    while(no/pow(10, p) != 0) {
-        p++;
-    }
-    sc(vec, no, p);
+    int con = N - 9 * jari;
+    if(con <= 0) con = 1;
+    cp = con;
+    int conn = con;
     
-    for(int i = 0; i<p; i++) {
-        sum += vec[i] * pow(10, p-i-1); 
+    while(1) {
+        while(conn){
+            cp = cp + (conn % 10);
+            conn = conn / 10;
+        }
+        if (cp == N || con == N) break;
+        else {con++; cp = con; conn = con;} 
     }
-    return sum;
+    
+    if(cp == N) printf("%d\n", con);
+    else printf("0\n");
+    
+    return 0;
 }
