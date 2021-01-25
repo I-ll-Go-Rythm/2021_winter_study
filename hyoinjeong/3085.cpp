@@ -74,9 +74,9 @@ int main()
 			}
 		}
 	}
-	for(int i=0;i<board.size()-1;i++)
+	for(int i=0;i<board.size();i++)
 	{
-		for(int j=0;j<board.size();i++)
+		for(int j=0;j<board.size()-1;i++)
 		{
 			if(board[j][i]!=board[j+1][i])
 			{
@@ -91,7 +91,7 @@ int main()
 	vector<int> answer;
 	for(int i=0;i<casesboard.size();i++)
 	{
-		answer.push_back(count(casesboard[i]));
+		answer.push_back(count(casesboard.at(i));
 	}
 	cout<<*max_element(answer.begin(),answer.end());
 	return 0;
