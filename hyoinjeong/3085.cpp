@@ -1,67 +1,98 @@
 #include <iostream>
 #include <algorithm>
+#include <vector>
+
 using namespace std;
 
-
-int count(char** board,int n)
+int count(vector<vector<char>> array)
 {
-	//c,p,z,y
-	int arr1[3]={0};
-	int arr2[3]={0};
-	for(int i=1;*(board[i])!=0;i++)
+	vector<int> counted;
+	for(int i=0;i<array.size();i++)
 	{
-		switch(board[i][n])
+		int count = 1;
+		for(int j=0;j<array.size();j++)
 		{
-			case 'C':
-				arr1[0]++;
-				break;
-			case 'P':
-				arr1[1]++;
-				break;
-			case 'Z':
-				arr1[2]++;
-				break;
-			case 'Y':
-				arr1[3]++;
-				break;
+			if(array[i][j]==array[i][j+1])
+			{
+				count++;
+			}
+			else
+			{
+				counted.push_back(count);
+				count = 1;
+			}
 		}
 	}
-	for(int i=1;(board[n][i])!=0;i++)
+	for(int i=0;i<array.size();i++)
 	{
-		switch(board[n][i])
+		int count = 1;
+		for(int j=0;j<array.size();j++)
 		{
-			case 'C':
-				arr2[0]++;
-				break;
-			case 'P':
-				arr2[1]++;
-				break;
-			case 'Z':
-				arr2[2]++;
-				break;
-			case 'Y':
-				arr2[3]++;
-				break;
+			if(array[j][i]==array[j+1][i])
+			{
+				count++;
+			}
+			else
+			{
+				counted.push_back(count);
+				count = 1;
+			}
 		}
 	}
-	
-	return (*max_element(arr1,arr1+3)>*max_element(arr2,arr2+3)? *max_element(arr1,arr1+3):*max_element(arr2,arr2+3));
+	return *max_element(counted.begin(),counted.end());
 }
 
 int main()
 {
+	//입력
 	int n;
 	char color;
 	cin>>n;
-	char** board;
-	for(int i=1;i<=n;i++)
+	vector<vector<char>> board;
+	for(int i=0;i<n;i++)
 	{
-		for(int j=1;j<=n;j++)
+		vector<char> row;
+		for(int j=0;j<n;j++)
 		{
 			cin>>color;
-			board[i][j]=color;
+			row.push_back(color);
+		}
+		board.push_back(row);
+	}
+	
+	//스왑경우의수
+	vector<vector<vector<char>>> casesboard;
+	for(int i=0;i<board.size();i++)
+	{
+		for(int j=0;j<board.size()-1;i++)
+		{
+			if(board[i][j]!=board[i][j+1])
+			{
+				vector<vector<char>> test(board);
+				swap(test[i][j],test[i][j+1]);
+				casesboard.push_back(test);
+			}
 		}
 	}
-	cout<<count(board,2);
+	for(int i=0;i<board.size();i++)
+	{
+		for(int j=0;j<board.size()-1;i++)
+		{
+			if(board[j][i]!=board[j+1][i])
+			{
+				vector<vector<char>> test(board);
+				swap(test[j][i],test[j+1][i]);
+				casesboard.push_back(test);
+			}
+		}
+	}
 	
+	//각 경우의 수에대한 최대개수 중 최대개수
+	vector<int> answer;
+	for(int i=0;i<casesboard.size();i++)
+	{
+		answer.push_back(count(casesboard.at(i));
+	}
+	cout<<*max_element(answer.begin(),answer.end());
+	return 0;
 }
