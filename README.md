@@ -1,3 +1,5 @@
+### Always pull before making a push to master branch!!
+
 The holy trinity of Git
 
 git add
