@@ -10,6 +10,10 @@ int main(void) {
 	cout << sizeof(float* ) << endl;
 	cout << sizeof(float ) << endl;
 
+	if('a' == 97) 
+		cout << "yo its right" << endl;
+
+
 	return 0;
 }
 
