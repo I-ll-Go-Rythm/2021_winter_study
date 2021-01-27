@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+
+const int MAX_N = 20;
+int arr[MAX_N];
+int N, S;
+
+int main() {
+	cin >> N >> S;
+	for(int i=0; i<N; i++) {
+		cin >> arr[i];
+	}
+
+	int count = 0;
+	for(int i=1; i<N+1; i++) { // 개수
+		for(int j=0; j<N+1-i; j++) { // 시작 위치
+			int temp = 0;
+			for(int k=0; k<i; k++) { // 덧셈
+				temp += arr[j+k];
+			}
+			if(temp == S) ++count;
+		}
+	}
+
+	cout << count << endl;
+
+	return 0;
+}
+
