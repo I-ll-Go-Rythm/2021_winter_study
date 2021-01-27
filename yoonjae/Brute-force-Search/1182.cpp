@@ -10,12 +10,13 @@ int N, S, count = 0, temp = 0;
 void back_tracking(int n) {
 	visited[n] = 1;
 	temp += arr[n];
-	cout << "back tracking for num " << n << ", temp is " << temp << endl;
+//	cout << "back tracking for num " << arr[n] << ", sum is " << temp << endl;
 	if(temp == S) ++count;
-	for(int i=1; i<N+1; i++) {
+	for(int i=n; i<N+1; i++) {
 		if(visited[i] != 1) {
 //			cout << "in if, i is " << i << ", temp is " << temp << endl;
 			back_tracking(i);
+//			cout << ", and then cancel num " << arr[i] << endl;
 			visited[i] = 0;
 			temp -= arr[i];
 		}
