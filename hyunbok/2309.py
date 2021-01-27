@@ -1,14 +1,14 @@
-list = [20, 7, 23, 19, 10, 15, 25, 8, 13]
-list.sort()
-target = sum(list)-100
-for i in range(0, 9):
-    for j in range(0, 9):
-        if i == j : 
-            j+=1
-            continue
-        if list[i]+list[j]==target:
-            del list[i]
-            del list[j]
-            print(list)
+a = []
+a = [int(input()) for _ in range(9)]
 
-
+a.sort()
+result = sum(a)
+for i in range(9):
+    for j in range(i+1, 9):
+        if result - a[i] - a[j] ==100:
+            for k in range(9):
+                if k == i or k == j:
+                    continue
+                else:
+                    print(a[k])
+            exit()
