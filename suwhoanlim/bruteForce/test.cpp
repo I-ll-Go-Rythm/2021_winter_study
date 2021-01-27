@@ -3,12 +3,27 @@
 using namespace std;
 
 int main(void) {
+
+	int m = 1;
+	int n = 1;
+	bool tmp = 1;
+	cout << (((6&7)&1)^tmp) << endl;
+
 	cout << sizeof(int) <<endl;
 	cout << sizeof(int * ) << endl;
 	cout << sizeof(char * ) << endl;
 	cout << sizeof(char) << endl;
 	cout << sizeof(float* ) << endl;
 	cout << sizeof(float ) << endl;
+	cout << "boolean test" << endl;
+	cout << sizeof(bool ) << endl;
+	bool ara[3];
+	bool araa[5];
+	cout << sizeof(ara ) << endl;
+	cout << sizeof(araa ) << endl;
+	int a, b, c, d, e;
+	scanf("%d%d%d %d %d\n", &a, &b, &c, &d, &e);
+	printf("%d %d %d %d %d\n", a, b, c, d, e);
 
 	if('a' == 97) 
 		cout << "yo its right" << endl;
