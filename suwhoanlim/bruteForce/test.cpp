@@ -3,6 +3,12 @@
 using namespace std;
 
 int main(void) {
+
+	int m = 1;
+	int n = 1;
+	bool tmp = 1;
+	cout << (((6&7)&1)^tmp) << endl;
+
 	cout << sizeof(int) <<endl;
 	cout << sizeof(int * ) << endl;
 	cout << sizeof(char * ) << endl;
