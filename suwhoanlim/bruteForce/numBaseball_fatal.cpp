@@ -1,3 +1,6 @@
+//There are three fatal errors in this problem
+//Find them to prove you are worthy!
+
 #include <iostream>
 #include <stdio.h>
 using namespace std;
@@ -5,15 +8,15 @@ using namespace std;
 int main(void) {
     int row, a, b, c, aa, bb, cc, str, ba, ss, bbaa;
     cin >> row;
-    int arr[1000]; //
+    bool arr[1000];
     
-    for(int i = 123 ; i <1000; i++) { // not good for mem, but si-an-seung better? mem eff < comp cost
+    for(int i = 123 ; i <1000; i++) { // 메모리 효율성 그닥, 근데 보기는 편하잖아? mem eff < comp cost
         arr[i] = 0;
     }
     
     while(row) {
         cin >> aa >> str >> ba;
-        bb = (aa/10)%10; cc = aa%10; aa = aa/100; //
+        bb = (aa/10)%10; cc = aa/10; aa = aa/100;
         for(int i = 123; i < 1000; i++) {
             if(arr[i] == -1) continue;
             ss = 0; bbaa = 0;
@@ -33,10 +36,7 @@ int main(void) {
     
     aa = 0;
     for(int i = 123; i < 1000; i++) {
-        a = i/100; b = (i/10)%10; c = i%10; //
-        if(a == 0 || b == 0 || c == 0) continue;
-        else if(a == b || a == c || b == c) continue;
-        else if(arr[i] == 1) aa++;     
+	if(arr[i] == 1) aa++;     
     }
     cout << aa << endl;
     
