@@ -1,20 +1,21 @@
-#include <stdio.h>
 #include <string>
 #include <cstring>
 #include <vector>
 #include <iostream>
-
+#include <stdio.h>
 using namespace std;
 
 int main()
 {
 	int n;
-	scanf("%d",&n);
-	char num[n][3];
+	cin>>n;
+	char num[n][4];
 	int strike[n],ball[n];
 	for(int i=0;i<n;i++)
 	{
-		scanf("%s %d %d",num[i],&strike[i],&ball[i]);
+		cin>>num[i];
+		cin>>strike[i];
+		cin>>ball[i];
 	}
 	
 	vector<string> answers;
@@ -31,37 +32,42 @@ int main()
 		}
 	}
 	
-	//ans:324, 123
 	int count=0;
-	int fakestrike=0;
-	int fakeball=0;
-	for(int j=0;j<n;j++)
+	int fakestrike[n]={0};
+	int fakeball[n]={0};
+	for(int i=0;i<answers.size();i++)
 	{
-		for(int i=0;i<answers.size();i++)
+		bool pandog = 1;
+		for(int j=0;j<n;j++)
 		{
 			for(int k=0;k<3;k++)
 			{
-				if(strchr(num[j],answers[i][k])!=NULL)// 324에서 123이 있는가? 1일때 없으므로 스킵, 2일때 있는데 if문에서 걸려서 fakestrike++, 3일때 fakeball++
+				if(strchr(num[j],answers[i][k])!=NULL)// 123에서 123이 있는가?
 				{
 					if((answers[i][k])==(num[j][k]))
 					{
-						fakestrike++;
+						fakestrike[j]++;
 					}
 					else
 					{
-						fakeball++;
+						fakeball[j]++;
 					}
 				}
 			}//여기서 123 입력값일때 1S 1B
-			if((fakestrike==strike[j])&&(fakeball==ball[j]))
+			if((fakestrike[j]==strike[j])&&(fakeball[j]==ball[j]))
 			{
-				count++;
-				fakestrike=0;
-				fakeball=0;
+				pandog *= 1;
 			}
-			fakestrike=0;
-			fakeball=0;
-			
+			else
+			{
+				pandog *= 0;
+			}
+			fakestrike[j]=0;
+			fakeball[j]=0;
+		}
+		if(pandog)
+		{
+			count++;
 		}
 	}
 	
