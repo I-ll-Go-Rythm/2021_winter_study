@@ -5,9 +5,9 @@ using namespace std;
 int main(void) {
     int row, a, b, c, aa, bb, cc, str, ba, ss, bbaa;
     cin >> row;
-    int arr[1000]; // change to bool
+    int arr[1000];
     
-    for(int i = 123 ; i <1000; i++) { // 메모리 효율성 그닥, 근데 보기는 편하잖아? mem eff < comp cost
+    for(int i = 123 ; i <1000; i++) { // not good for mem, but si-an-seung better? mem eff < comp cost
         arr[i] = 0;
     }
     
