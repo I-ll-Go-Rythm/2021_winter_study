@@ -1,4 +1,4 @@
-tri = [n*(n+1)//2 for n in range(1, 46)]
+tri = [n*(n+1)//2 for n in range(1, 45)]
 eur = [0] * 1001
 
 for a in tri:
