@@ -74,3 +74,4 @@ int main()
 	cout<<count<<endl;
 	return 0;
 }
+//한번 입력할때마다

@@ -13,7 +13,7 @@ int func(int n)
 	vector<int> element;
 	for(int i=0;i<str.length();i++)
 	{
-		element.push_back(((int)(str[i])-48));
+		element.push_back(stoi(str[i]));
 		sum+= element[i];
 	}
 	//cout<<sum<<endl;
@@ -42,3 +42,5 @@ int main()
 	}
 	return 0;
 }
+//stoi는 어떨까?
+//범위변경: 최솟값과 최댓값
