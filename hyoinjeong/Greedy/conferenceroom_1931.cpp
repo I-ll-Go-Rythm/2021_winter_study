@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <climits>
 
 using namespace std;
 
@@ -17,28 +18,27 @@ int main()
 	}
 	sort(conferences.begin(),conferences.end());
 	int count = 1;
-	int temp = 0;
-	int maximum = 1;
-	for(int i=0;i<conferences.size()-1;i++)
+	int tempstart=0, tempend=INT_MAX;
+	int i=0;
+	do
 	{
-		
-		if(temp<=conferences[i].first)
+		if(tempend<=conferences[i].first)
 		{
 			count++;
-			temp = conferences[i].second;	
+			tempstart = conferences[i].first;
+			tempend= conferences[i].second;
 		}
+		else if((conferences[i].first>=tempstart)&&(conferences[i].second<=tempend))
+		   {
+			   tempstart = conferences[i].first;
+			   tempend= conferences[i].second;
+		   }
 		
 		
-		for(int j=i+1;j<conferences.size();j++)
-		{
-			if(temp<=conferences[j].first)
-			{
-				count++;
-				temp = conferences[j].second;
-			}
-		}
-		maximum = max(maximum,count);
-		count = 1;
-	}
-	cout<<maximum<<endl;
+		// cout<<"start: "<<tempstart<<endl;
+		// cout<<"end: "<<tempend<<endl;
+		// cout<<"count: "<<count<<endl;
+		i++;
+	}while(i<conferences.size());
+	cout<<count<<endl;
 }
