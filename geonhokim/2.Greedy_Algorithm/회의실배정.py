@@ -10,20 +10,20 @@ class Solution:
 
             reserv_list.append([start, end])
         
-        # reserv_list.sort(key=lambda x: [x[1], x[0]])
-        reserv_list.sort(key=lambda x: x[1])
+        reserv_list.sort(key=lambda x: [x[1], x[0]])
+        # reserv_list.sort(key=lambda x: x[1])
         
-        # for i in range(len(reserv_list)):
-        #     if not stack:
-        #         stack.append(reserv_list[i])
-        #         continue
+        for i in range(len(reserv_list)):
+            if not stack:
+                stack.append(reserv_list[i])
+                continue
 
-        #     if stack[-1][1] <= reserv_list[i][0]:
-        #         stack.append(reserv_list[i])
+            if stack[-1][1] <= reserv_list[i][0]:
+                stack.append(reserv_list[i])
 
-        # return len(stack)
+        return len(stack)
         
-        return reserv_list
+        # return reserv_list
 
 sol = Solution()
 
