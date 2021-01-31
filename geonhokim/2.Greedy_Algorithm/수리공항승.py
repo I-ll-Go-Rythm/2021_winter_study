@@ -9,10 +9,7 @@ class Solution:
         i = 0
         j = 1
         while True:
-            if i == len(leak_list) - 1:
-                break
-            
-            if i + j > len(leak_list) - 1:
+            if i == len(leak_list) - 1 or i + j > len(leak_list) - 1:
                 break
             
             if leak_list[i] - 0.5 + L >= leak_list[i + j] + 0.5:
