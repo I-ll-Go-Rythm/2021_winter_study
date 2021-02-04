@@ -11,9 +11,7 @@ for i in range(N):
     x, c = map(int, input().split())
     X.append(x)
     C.append(c)
-    
 j = -1
-
 while True:
     max_taste = max(C[j+1:])
     j = find_from_back(C,max_taste)
@@ -21,6 +19,4 @@ while True:
     temp = X[j]
     if j == N-1:
         break
-
 print(answer)
-# print(L, N, rf, rb)
