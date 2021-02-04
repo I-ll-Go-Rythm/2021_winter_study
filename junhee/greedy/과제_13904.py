@@ -1,6 +1,6 @@
 N = int(input())
 homework =[]
-filt =[]
+available =[]
 temp = 0
 answer = 0
 for i in range(N):
@@ -16,13 +16,15 @@ while j > 0:
             i += 1
             if i == N:
                 break
-        filt += list(map(lambda x : x[1], homework[temp:i]))
+        available += list(map(lambda x : x[1], homework[temp:i]))
         temp = i
-    if len(filt)!=0:
-        answer += max(filt)
-        filt.remove(max(filt))
+    if len(available)!=0:
+        answer += max(available)
+        available.remove(max(available))
     j -= 1
+print(answer)
 
+#밑에는 뻘짓한 흔적...ㅠ
 """ i = 0
 while i < N:
     while homework[i][0] == days and temp < days:
@@ -41,5 +43,3 @@ while i < N:
         break
     days = homework[i][0]
     temp = 0 """
-
-print(answer)
