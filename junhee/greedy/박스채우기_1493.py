@@ -33,5 +33,3 @@ for i in range(N):
             print(-1)
         else:
             print(answer)
-#print(length, width, height)
-#print(cube)
