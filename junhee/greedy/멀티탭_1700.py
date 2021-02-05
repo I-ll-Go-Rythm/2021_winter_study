@@ -8,6 +8,7 @@ for i in range(N):
 for E in range(K):
     if elec[E] in plug:
         continue
+    
     for i in range(N):
         if plug[i] == 0 :
             plug[i] = elec[E]

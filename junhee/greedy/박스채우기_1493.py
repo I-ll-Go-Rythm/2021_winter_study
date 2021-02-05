@@ -1,15 +1,10 @@
-import math
-
-def max_box(A):
+def max_box(A): #A를 이용해 박스를 채울 수 있는 최대 개수
     global length, width, height
-    return math.floor(length/A)*math.floor(width/A)*math.floor(height/A)
+    return (length//A)*(width//A)*(height//A)
 
 length, width, height = map(int, input().split())
 N = int(input())
-cube = []
-answer = 0
-temp = 0
-tempsum = 0
+cube = [], answer = 0, temp = 0, tempsum = 0
 for i in range(N):
     Ai, Bi = map(int, input().split())
     cube.append([2**Ai,Bi])
