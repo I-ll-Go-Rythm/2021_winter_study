@@ -1,11 +1,3 @@
-from queue import PriorityQueue
+s = [2, 3, 2, 3, 1, 2, 7]
 
-que = PriorityQueue()
-
-que = PriorityQueue(maxsize=8)
-
-que.put(4)
-que.put(3)
-que.put(7)
-
-print(que.get())
+print(s[1+1:].index(2))
