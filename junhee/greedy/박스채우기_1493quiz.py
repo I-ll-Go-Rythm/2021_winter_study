@@ -28,7 +28,4 @@ for i in range(N):
     tempsum *= 8
     tempsum += temp*8
     if i == N-1 :
-        if temp != mx: #다 못채웠다는 의미!
-            print(-1)
-        else:
-            print(answer)
+        print(answer)
