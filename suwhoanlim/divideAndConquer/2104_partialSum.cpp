@@ -1,3 +1,7 @@
+// https://yangorithm.tistory.com/51
+// https://devbelly.tistory.com/61
+// https://t-anb.tistory.com/15
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -17,6 +21,9 @@ ll solve(int start, int end, vector<int> const &arr) {
     
     while(start < left || right < end) {
         if(right < end && (start == left || arr[left - 1] < arr[right + 1])) {
+	    // why would we need (arr[left - 1] < arr[right + 1])?
+            // might be a good challenge to think about
+            // hint: thie while loop won't check every single possible combination of the subsets
             interSum += arr[++right];
             minval = min(minval, arr[right]);
         }
