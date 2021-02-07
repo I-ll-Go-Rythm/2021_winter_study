@@ -1,3 +1,4 @@
+#분할과 정복쓰지않고 처음부터 끝까지 쭉 가면서 완전탐색
 import sys
 input=sys.stdin.readline
 n=int(input())
@@ -6,7 +7,7 @@ result=0
 cursor=0
 a=0
 for _ in range(n):
-  graph.append(int(input()))
+    graph.append(int(input()))
 graph.append(0)
 stack=[(0,graph[0])]
 print(stack)
