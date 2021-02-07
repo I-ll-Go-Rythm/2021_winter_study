@@ -14,7 +14,7 @@ int main()
 {
 	int N,K;
 	cin>>N>>K;
-	int sequence[K];
+	int sequence[K];  
 	map<int,int> m1;
 	int temp =N;
 	for(int i=0;i<K;i++)
