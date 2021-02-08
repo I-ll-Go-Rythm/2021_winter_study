@@ -1,16 +1,29 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
-vector<vector<int>> arr(pow(2,15));
-int cnt;
+int cnt, r, c;
+
+bool inrange(int x, int y, int n)
+{
+	if((x<=r)&&(r<x+n)&&(y<=c)&&(c<y+n))
+	{
+		return true;
+	}
+	return false;
+}
 
 void z(int i, int j ,int n)
 {
-	if(n==1)
+	//cout<<"i: "<<i<<"  j: "<<j<<"  n: "<<n<<endl;
+	if(!inrange(i,j,n))
 	{
-		arr[i][j]=cnt;
-		cnt++;
+		cnt = cnt + n*n; 
+		//cout<<"cnt :"<<cnt<<endl;
+		return;
+	}
+	if((i==r)&&(j==c)&&(n==1))
+	{
+		cout<<cnt;
 		return;
 	}
 	int div=n/2;
@@ -25,14 +38,8 @@ void z(int i, int j ,int n)
 
 int main()
 {
-	int N,r,c;
+	int N;
 	cin>>N>>r>>c;
-	vector<int> row((int)pow(2,15));
-	for(int i=0;i<(int)pow(2,N);i++)
-	{
-		arr.push_back(row);
-	}
 	z(0,0,(int)pow(2,N));
-	cout<<arr[r][c];
 	return 0;
 }
