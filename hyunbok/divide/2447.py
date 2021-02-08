@@ -1,20 +1,34 @@
-def stars(n):
-    matrix=[]
-    for i in range(3 * len(n)):
-        if i // len(n) == 1:
-            matrix.append(n[i % len(n)] + " " * len(n) + n[i % len(n)])
-        else:
-            matrix.append(n[i % len(n)] * 3)
-    return(list(matrix))
 
-star = ["***","* *","***"]
-n = int(input())
-k = 0
-while n != 3:
-    n = int(n / 3)
-    k += 1
-    
-for i in range(k):
-    star = stars(star)
-for i in star:
-    print(i)
+def sol(x, y, N):
+    if N != 3:
+        for i in range(3):
+            for j in range(3):
+                if i == 1 and j == 1:
+                    continue
+                sol(x + i*(N//3), y + j*(N//3), N//3)
+        return
+    else:
+        for a in range(3):
+            for b in range(3):
+                if a==1 and b==1:
+                    continue
+                else:
+                    m[x+a][y+b] = 1
+
+N = int(input())
+
+m = [[0 for i in range(N)] for i in range(N)]
+
+sol(0, 0, N)
+
+for x in range(N):
+    for y in range(N):
+        if m[x][y] == 1:
+            print('*', end ='')
+        else:
+            print(' ', end ='')
+    print()
+
+
+
+
