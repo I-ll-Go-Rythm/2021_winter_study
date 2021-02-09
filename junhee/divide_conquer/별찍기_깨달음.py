@@ -1,12 +1,12 @@
 def draw(H):
     if H == 3:
-        return [[1,1,1],[1,0,1],[1,1,1]]
+        return [['*','*','*'],['*',' ','*'],['*','*','*']]
     temp=[]
     starlist=[]
     for i in range(H):
         temp.append(0)
     for i in range(H):
-        starlist.append(temp)
+        starlist.append(temp)#temp를 바꾸면 starlist도 바뀜
     h = H//3
     last_star = draw(h)
     for i in range(3):
