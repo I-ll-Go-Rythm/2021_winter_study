@@ -12,7 +12,9 @@ def iseither(s,i): #문자열 s의 i번째 이후의 문자열이 문제 조건�
         return 0
     else:
         return 1 
-        
+
+dp = [0]*101
+
 S = input()
 N = int(input())
 A = [input() for _ in range(N)]
