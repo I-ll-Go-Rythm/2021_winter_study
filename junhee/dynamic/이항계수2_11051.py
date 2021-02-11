@@ -1,3 +1,4 @@
+import sys; sys.setrecursionlimit(1500)
 def com(n,k):
     if k == 0 or n == k:
         return 1
