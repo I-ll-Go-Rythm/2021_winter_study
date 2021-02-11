@@ -16,7 +16,6 @@ N = int(input())
 answer = 0
 dp = [[0 for _ in range(10)]for _ in range(N+1)]
 
-
 for i in range(1,10):
     answer += stair(N,i)
-print(answer)
+print(answer%1000000000)
