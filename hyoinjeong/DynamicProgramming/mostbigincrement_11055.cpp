@@ -1,6 +1,4 @@
-#include <cstdio>
-#include <cstring>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
 int N, A[1000], dp[1000];
