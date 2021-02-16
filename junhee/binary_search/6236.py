@@ -3,7 +3,7 @@ input = sys.stdin.readline
 n,m=map(int,input().split())
 money=[]
 for _ in range(n):
-  money.append(int(input()))
+  money.append(int(input()))#입력 완료
 summy=sum(money)
 start, end = 0,summy
 result=summy
@@ -13,7 +13,7 @@ while start<=end:
     temp=mid
     flag=False
     cnt=1
-    for i in range(n):
+    for i in range(n):#N일 반복
       if mid<money[i]:
         flag=True
         break
