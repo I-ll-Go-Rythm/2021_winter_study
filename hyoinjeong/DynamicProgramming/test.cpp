@@ -1,28 +1,54 @@
-#include <cstdio>
-#include <cstring>
-#include <algorithm>
+#include<iostream>
+#include<vector>
+
 using namespace std;
 
-int N, A[1000], dp[1000];
-
-int largestSS(int pos){
-	if(pos == N) return 0;
-	int &ret = dp[pos];
-	if(ret != -1) return ret;
-
-	ret = 0;
-	for(int i=pos+1; i<N; i++)
-		if(A[i] > A[pos]) ret = max(ret, largestSS(i));
-	return ret += A[pos];
-}
-
+typedef struct box{
+	int start;
+	int end;
+	int gap;
+};
 int main(){
-	scanf("%d", &N);
-	for(int i=0; i<N; i++)
-		scanf("%d", A+i);
-	memset(dp, -1, sizeof(dp));
-	int result = 0;
-	for(int i=0; i<N; i++)
-		result = max(result, largestSS(i));
-	printf("%d\n", result);
+	int N, K, D;
+	long long low, high, mid, cnt;
+	vector<box> boxs;
+	box input;
+
+	scanf("%d %d %d", &N, &K, &D);
+
+	for(int i=0; i<K; i++){
+		scanf("%d %d %d", &input.start, &input.end, &input.gap);
+		boxs.push_back(input);
+	}
+
+	low = 1;
+	high = N;
+
+	while(low+1 <high){
+		mid = (low + high)/2;
+		cnt=0;
+		for(int i=0; i<boxs.size(); i++){
+			if(boxs[i].end < mid){
+				cnt += (boxs[i].end - boxs[i].start)/boxs[i].gap+1;
+			}
+			else if(boxs[i].start > mid)
+				continue;
+			else if(boxs[i].start == mid)
+				cnt += 1;
+			else{
+				cnt += (mid - boxs[i].start)/boxs[i].gap+1;
+			}
+		}
+
+		if(cnt >= D){
+			high = mid;
+		}
+		else
+			low = mid;
+	
+	}
+
+	printf("%lld\n", high);
+
+	return 0;
 }
