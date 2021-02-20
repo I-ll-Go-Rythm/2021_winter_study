@@ -1,11 +1,12 @@
 #include <iostream>
 #include <algorithm>
+#include <cstring>
 
 using namespace std;
 
 const int MAX = 100;
 int N;
-int ans = 0;
+int ans = 1;
 int arr[MAX][MAX];
 bool visited[MAX][MAX];
 int dr[4] = {0, 0, 1, -1};
@@ -18,7 +19,6 @@ void DFS(int r, int c) {
     if(tempr<0 || tempr>N-1 || tempc<0 || tempc>N-1) continue;
     if(!visited[tempr][tempc]) DFS(tempr, tempc);
   }
-
   return;
 }
 
@@ -31,7 +31,7 @@ int main() {
     max_height = max(max_height, arr[r][c]);
     }
   }
-  for(int i=1; i<max_height; i++) {
+  for(int i=1; i<=max_height; i++) {
     memset(visited, false, sizeof(visited));
     int cnt = 0;
     for(int r=0; r<N; r++) {
@@ -52,3 +52,4 @@ int main() {
   cout << ans << endl;
   return 0;
 }
+
