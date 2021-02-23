@@ -8,7 +8,7 @@
             "name": "g++ - 활성 파일 빌드 및 디버그",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}/movingknight_7562",
+            "program": "${fileDirname}/startlink_5014",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
