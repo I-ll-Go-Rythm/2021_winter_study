@@ -36,4 +36,5 @@ int main(){
     }
     memset(dp,-1,sizeof(dp));
     printf("%d",tsp(0,1));
+    return 0;
 }
