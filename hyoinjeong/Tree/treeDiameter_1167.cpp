@@ -1,3 +1,4 @@
+//트리의 지름 알고리즘
 #include <cstdio>
 #include <vector>
 #include <algorithm>
@@ -9,6 +10,7 @@ class Graph{
     vector<bool> visited;
     int ret=0;
     int distance=0;
+    int i=0;
     public:
     Graph():N(0){}
     Graph(int n):N(n){
@@ -24,6 +26,7 @@ class Graph{
             if(!visited[next.first]){
                 visited[next.first]=true;
                 ret+=next.second;
+                if(distance<ret) i=next.first;
                 distance=max(distance,ret);
                 dfs(next.first);
                 ret-=next.second;
@@ -38,10 +41,13 @@ class Graph{
     int getDistance(){
         return distance;
     }
+     int geti(){
+        return i;
+    }
 };
 
 int main(){
-    int v,x,y,r,dist=0;
+    int v,x,y,r;
     scanf("%d",&v);
     Graph G(v+1);
     for(int i=0;i<v;i++){
@@ -53,10 +59,13 @@ int main(){
             G.addEdge(x,y,r);
         }
     }
-    for(int i=1;i<=v;i++){
-        G.dfs(i);
-        dist=max(dist,G.getDistance());
-        G.reset();
-    }
-    printf("%d",dist);
+    G.dfs(1);
+    G.reset();
+    G.dfs(G.geti());
+    // for(int i=1;i<=v;i++){
+    //     G.dfs(i);
+    //     dist=max(dist,G.getDistance());
+    //     G.reset();
+    // }
+    printf("%d",G.getDistance());
 }
